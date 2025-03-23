@@ -3,6 +3,7 @@ import "./App.css";
 import ico from "./assets/images/icon-arrow.svg";
 import { motion } from "motion/react";
 import NumberFlow from "@number-flow/react";
+import { style } from "motion/react-client";
 
 function App() {
   const [days, setDays] = useState("");
@@ -116,10 +117,10 @@ function App() {
               id="label-days"
               className="flex flex-col place-items-center gap-2 text-neutral-400 sm:h-36"
             >
-              <span className={objtError.dayError?"text-red-400":"text-neutral-400 "}>DAY</span>
+              <span className={objtError.dayError?"text-red-400 font-bold":"text-neutral-400 font-bold "}>DAY</span>
               <input
                 type="text"
-                className={"focus:outline-2 focus:outline-offset-2 focus:outline-salid focus:outline-purple-600 font-bold border border-neutral-400 text-center transition delay-150 p-2 duration-150 w-1/2 focus:border focus:border-purple-600 rounded-lg sm:w-full"}
+                className={`focus:outline-2 text-neutral-800 focus:outline-offset-2 focus:outline-salid focus:outline-purple-600 font-bold border border-neutral-400 text-center transition delay-150 p-2 duration-150 w-1/2 focus:border focus:border-purple-600 rounded-lg sm:w-full ${objtError.dayError?"border-red-400 border-2":"border-neutral-400"}`} 
                 name="days"
                 id="inputDays"
                 placeholder="DD"
@@ -140,11 +141,11 @@ function App() {
               id="label-month"
               className="  flex flex-col place-items-center gap-2 text-neutral-400 sm:h-36"
             >
-              <span className={objtError.monthError?"text-red-400":"text-neutral-400 "}> MONTH</span>
+              <span className={objtError.monthError?"text-red-400 font-bold":"text-neutral-400 font-bold"}> MONTH</span>
               <input
                 type="text"
                 name="month"
-                className="focus:outline-2 focus:outline-offset-2 focus:outline-salid focus:outline-purple-600 font-bold border border-neutral-400 text-center transition delay-150 p-2 duration-150 w-1/2 focus:border focus:border-purple-600 rounded-lg sm:w-full"
+                className={`focus:outline-2 focus:outline-offset-2 text-neutral-800 focus:outline-salid focus:outline-purple-600 font-bold border border-neutral-400 text-center transition delay-150 p-2 duration-150 w-1/2 focus:border focus:border-purple-600 rounded-lg sm:w-full  ${objtError.monthError?"border-red-400 border-2":"border-neutral-400"}`}
                 id="inputMonth"
                 placeholder="MM"
                 value={month}
@@ -166,10 +167,10 @@ function App() {
               id="label-years"
               className=" flex flex-col place-items-center gap-2 text-neutral-400 sm:h-36"
             >
-              <span className={objtError.yearError?"text-red-400":"text-neutral-400 "}>YEAR</span>
+              <span className={objtError.yearError?"text-red-400 font-bold":"text-neutral-400 font-bold "}>YEAR</span>
               <input
                 type="text"
-                className="focus:outline-2 focus:outline-offset-2 focus:outline-salid focus:outline-purple-600 font-bold border border-neutral-400 text-center transition delay-150 p-2 duration-150 w-1/2 focus:border focus:border-purple-600 rounded-lg sm:w-full"
+                className={`focus:outline-2 text-neutral-800 focus:outline-offset-2 focus:outline-salid focus:outline-purple-600 font-bold border border-neutral-400 text-center transition delay-150 p-2 duration-150 w-1/2 focus:border focus:border-purple-600 rounded-lg sm:w-full  ${objtError.monthError?"border-red-400 border-2":"border-neutral-400"}`}
                 name="years"
                 id="inputYears"
                 placeholder="YYYY"
@@ -186,7 +187,7 @@ function App() {
             </label>
           </div>
 
-          <div className="section-icon relative h-20 mb-20 border-b-1 border-b-gray-400">
+          <div className="section-icon relative h-10 mb-20 border-b-1 border-b-gray-400">
             <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -207,7 +208,7 @@ function App() {
                 "--"
               )}
             </span>{" "}
-            <p>years</p>
+            <p className="italic">years</p>
           </div>
           <div className="h-[58px] flex items-center gap-3">
             <span className="text-purple-600 p-0 drop-shadow-xl">
@@ -218,7 +219,7 @@ function App() {
               )}
             </span>
             {"   "}
-            <p> months</p>
+            <p className="italic"> months</p>
           </div>
           <div className="h-[58px] flex items-center gap-3">
             <span className="text-purple-600 p-0 m-0 drop-shadow-xl">
@@ -228,7 +229,7 @@ function App() {
                 "--"
               )}
             </span>{" "}
-            <p>days</p>
+            <p className="italic">days</p>
           </div>
         </div>
         <motion.button
@@ -252,3 +253,5 @@ function App() {
 }
 
 export default App;
+
+
